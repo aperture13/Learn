@@ -1,14 +1,18 @@
 #include <iostream>
 
-//using namespace std;
-
 int main()
 {
-	int fav_numb;
-	std::cout << "Enter a number between 1 and 100"<< std::endl;
-	std::cin >> fav_numb;
-	std::cout << "That is my favorite number too!" << std::endl;
+	int fav_num;
+	do
+	{
+		std::cout << "Enter your favorite number between 1 and 100:";
+		std::cin >> fav_num;
+	}
+	while (fav_num > 100 || fav_num < 1);
+	
+	std::cout << "Your favorite number is "<<fav_num << "?"<<std::endl<<"That's my favorite number too!" << std::endl;
 	
 	system("pause");
+	
 	return 0;
 }
