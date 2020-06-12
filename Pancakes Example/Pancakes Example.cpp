@@ -6,23 +6,33 @@ using std::endl;
 
 int main()
 {
-	int numberOfCupcakes[10];
-	int orderOfCupcakes[10];
-	int counter, counter2;
+	int_fast64_t number_of_cupcakes[10];
+	int_fast64_t order_of_cupcakes[10];
+	int counter1=0, counter2=0;
 
-	/*for (counter = 0; counter < 10; counter++);
-		orderOfCupcakes[counter] = 0;
-		*/
-	
-	for (counter=0; counter<10; counter++)
+	for (counter1 = 0; counter1 < 10; counter1++);
 	{
-		cout << "Enter the number of pancakes eaten by person " << counter + 1;
-		cin >> numberOfCupcakes[counter];
+		order_of_cupcakes[counter1] = 0;
+		number_of_cupcakes[counter1] = 0;
+	}
+	for (counter1=0; counter1<10; counter1++)
+	{
+		cout << "Enter the number of pancakes eaten by person " << counter1 + 1<<" ";
+		cin >> number_of_cupcakes[counter1];
 		for (counter2=0; counter2<10; counter2++)
 		{
-			if (numberOfCupcakes[counter2]>numberOfCupcakes[9 - counter2])
-
+			if (number_of_cupcakes[counter2] > number_of_cupcakes[9 - counter2])
+			{
+				if (number_of_cupcakes[counter2] > number_of_cupcakes[counter2 - 1])
+					order_of_cupcakes[counter2] = counter2;
+			}
 		}
+	}
+	for (counter1=0;counter1<10;counter1++)
+	{
+		cout << "Person " << order_of_cupcakes[counter1+1] << " ate "
+		<< number_of_cupcakes[order_of_cupcakes[counter1]] <<" cupcakes!" << endl;
+
 	}
 
 	
