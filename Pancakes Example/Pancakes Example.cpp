@@ -6,49 +6,31 @@ using std::endl;
 
 int main()
 {
-	int number_of_pancakes[10];
-	int order_of_pancakes[10];
-	int count1{ 0 };
-	int count2{ 0 };
-	int temp{ 0 };
-
-	for (count1=0;count1<10;count1++)
+	int numberOfPancakes[10];
+	int orderOfPancakes[10];// = { 0,1,2,3,4,5,6,7,8,9 };
+	for (int i=0; i<10; i++)
 	{
-		number_of_pancakes[count1] = 0;
-		order_of_pancakes[count1] = count1;
+		cout << "Enter the number of pancakes that person " << i << " ate: ";
+		cin >> numberOfPancakes[i];
 	}
-
-	for (count1=0;count1<10;count1++)
+	for (int i=0; i<10; i++)
 	{
-		cout << "Enter the number of pancakes that person " << count1 << " ate: ";
-		cin >> number_of_pancakes[count1];
-	}
-
-	for (count1=0;count1<10;count1++)
-	{
-		
-		for (count2=count1+1;count2<10;count2++)
+		for (int j=i+1 ;j<10 ;j++)
 		{
-			if (number_of_pancakes[count1]>number_of_pancakes[count2])
-			{
-				temp = order_of_pancakes[count1];
-				order_of_pancakes[count1] = order_of_pancakes[count2];
-				order_of_pancakes[count2] = temp;
-			}
-			
+			if (numberOfPancakes[i] < numberOfPancakes[j])
+				orderOfPancakes[i] = i;
+			else
+				orderOfPancakes[i] = j;
 		}
 	}
+	for (int i = 0; i < 10; i++)
+		cout << numberOfPancakes[i] << "\t";
+	cout << endl;
+	for (int i = 0; i < 10; i++)
+		cout << orderOfPancakes[i] << "\t";
+	cout << endl;
 	
-	for (count1 = 0; count1 < 10; count1++)
-		cout << number_of_pancakes[count1]<<" ";
-	cout << endl;
-	for (count1 = 0; count1 < 10; count1++)
-		cout << order_of_pancakes[count1]<<" ";
-	cout << endl;
-
-	for (count1 = 0; count1 < 10; count1++)
-		cout << "Person " << order_of_pancakes[count1] << " ate "
-	<< number_of_pancakes[order_of_pancakes[count1]] << " pancakes." << endl;
+	
 	
 	system("pause");
 	return 0;
